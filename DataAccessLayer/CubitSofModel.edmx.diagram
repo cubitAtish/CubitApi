@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0bd7348b81bd4b82aa2decc6cedd4bbf" Name="Diagram1">
+        <EntityTypeShape EntityType="cubitModel.authtoken" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.city" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.class" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.country" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.friend" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.gpslocation" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.group" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.instclssectionmapping" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.parent" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.post" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.requeststatu" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.section" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.sectsubjmapping" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.state" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.subject" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.usergroup" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.userinfo" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cubitModel.userpersonalinfo" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="cubitModel.group_id" ManuallyRouted="false" />
+        <AssociationConnector Association="cubitModel.user_id" ManuallyRouted="false" />
+        <AssociationConnector Association="cubitModel.parent_user_id" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cubitModel.document" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="cubitModel.eventpost" Width="1.5" PointX="8.375" PointY="12.75" />
+        <EntityTypeShape EntityType="cubitModel.teacher" Width="1.5" PointX="10" PointY="2.125" />
+        <AssociationConnector Association="cubitModel.teacher_user_id" />
+        <EntityTypeShape EntityType="cubitModel.timetable" Width="1.5" PointX="10.375" PointY="13.625" />
+        <EntityTypeShape EntityType="cubitModel.periodtimetable" Width="1.5" PointX="12.375" PointY="13.75" />
+        <EntityTypeShape EntityType="cubitModel.examreportmapping" Width="1.5" PointX="14.375" PointY="13.75" />
+        <EntityTypeShape EntityType="cubitModel.examschedule" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="cubitModel.homeworkupload" Width="1.5" PointX="5.75" PointY="15.75" />
+        <EntityTypeShape EntityType="cubitModel.quizquestion" Width="1.5" PointX="15.75" PointY="7.75" />
+        <EntityTypeShape EntityType="cubitModel.quizresult" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="cubitModel.homework" Width="1.5" PointX="8.375" PointY="16.75" />
+        <EntityTypeShape EntityType="cubitModel.reportcard" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="cubitModel.student" Width="1.5" PointX="11" PointY="17.125" />
+        <AssociationConnector Association="cubitModel.student_class_id" />
+        <AssociationConnector Association="cubitModel.student_user_id" />
+        <EntityTypeShape EntityType="cubitModel.institution" Width="1.5" PointX="16.375" PointY="12" />
+        <AssociationConnector Association="cubitModel.student_institution_id" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

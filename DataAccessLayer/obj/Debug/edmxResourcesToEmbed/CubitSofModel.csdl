@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cubitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="authtoken">
+    <Key>
+      <PropertyRef Name="token_id" />
+    </Key>
+    <Property Name="token_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="token_key" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="token_expiry" Type="DateTime" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="crdate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city_stateid" Type="Int32" Nullable="false" />
+    <Property Name="city_isactive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="class_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="class_description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="students" Relationship="cubitModel.student_class_id" FromRole="class" ToRole="student" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="country_id" />
+    </Key>
+    <Property Name="country_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="country_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="country_isactive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="friend">
+    <Key>
+      <PropertyRef Name="friends_id" />
+    </Key>
+    <Property Name="friends_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="from_user_id" Type="Int32" Nullable="false" />
+    <Property Name="to_user_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gpslocation">
+    <Key>
+      <PropertyRef Name="gpslocation_id" />
+    </Key>
+    <Property Name="gpslocation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gpslocation_discription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="gpslocation_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="gpslocation_location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="group_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="group_isactive" Type="Boolean" Nullable="false" />
+    <Property Name="group_description" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="group_privacy" Type="Int32" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="usergroups" Relationship="Self.group_id" FromRole="group" ToRole="usergroup" />
+    <NavigationProperty Name="userinfo" Relationship="Self.user_id" FromRole="group" ToRole="userinfo" />
+  </EntityType>
+  <EntityType Name="instclssectionmapping">
+    <Key>
+      <PropertyRef Name="instclssection_id" />
+    </Key>
+    <Property Name="instclssection_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="institution_id" Type="Int32" Nullable="false" />
+    <Property Name="class_id" Type="Int32" Nullable="false" />
+    <Property Name="section_id" Type="Int32" Nullable="false" />
+    <Property Name="instclssection_strength" Type="Int32" />
+    <Property Name="instclssection_teacher_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="parent">
+    <Key>
+      <PropertyRef Name="parent_id" />
+    </Key>
+    <Property Name="parent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="parent_childeren" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="parent_occupation" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="parent_nameofspouse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="userinfo" Relationship="Self.parent_user_id" FromRole="parent" ToRole="userinfo" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="post_id" />
+    </Key>
+    <Property Name="post_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="post_doc_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="post_gpslocation_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="post_date" Type="DateTime" />
+    <Property Name="post_user_type" Type="Int32" />
+    <Property Name="post_feeds" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="post_tag_user_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="post_event_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="requeststatu">
+    <Key>
+      <PropertyRef Name="requeststatus_id" />
+    </Key>
+    <Property Name="requeststatus_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="request_from" Type="Int32" Nullable="false" />
+    <Property Name="request_to" Type="Int32" Nullable="false" />
+    <Property Name="request_status" Type="Int16" Nullable="false" />
+    <Property Name="request_for_group" Type="Int32" Nullable="false" />
+    <Property Name="request_note" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="request_crdate" Type="DateTime" Nullable="false" />
+    <Property Name="request_upddate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="section">
+    <Key>
+      <PropertyRef Name="section_id" />
+    </Key>
+    <Property Name="section_id" Type="Int32" Nullable="false" />
+    <Property Name="section_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="section_description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sectsubjmapping">
+    <Key>
+      <PropertyRef Name="sectsubjmapping_id" />
+    </Key>
+    <Property Name="sectsubjmapping_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="instclssection_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="state_id" />
+    </Key>
+    <Property Name="state_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="state_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="state_countryid" Type="Int32" />
+    <Property Name="state_isactive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="subject_id" />
+    </Key>
+    <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subject_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subject_syllabus" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usergroup">
+    <Key>
+      <PropertyRef Name="usergroup_id" />
+    </Key>
+    <Property Name="usergroup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+    <Property Name="fromuser_id" Type="Int32" Nullable="false" />
+    <Property Name="touser_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="group" Relationship="Self.group_id" FromRole="usergroup" ToRole="group" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="user_password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="user_isactive" Type="Boolean" />
+    <Property Name="user_locked" Type="Boolean" />
+    <Property Name="user_failedattempt" Type="Int32" />
+    <Property Name="user_lockedtilldate" Type="DateTime" />
+    <Property Name="user_type" Type="Int32" />
+    <Property Name="user_crdate" Type="DateTime" />
+    <Property Name="user_crby" Type="Int32" />
+    <Property Name="user_upddate" Type="DateTime" />
+    <Property Name="user_updby" Type="Int32" />
+    <Property Name="user_alternatemail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pwdchange_oldpwd" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="pwdchange_newpwd" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="pwdchange_redate" Type="DateTime" />
+    <Property Name="pwdchange_upddate" Type="DateTime" />
+    <Property Name="pwdchange_guid" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="groups" Relationship="Self.user_id" FromRole="userinfo" ToRole="group" />
+    <NavigationProperty Name="parents" Relationship="Self.parent_user_id" FromRole="userinfo" ToRole="parent" />
+    <NavigationProperty Name="students" Relationship="cubitModel.student_user_id" FromRole="userinfo" ToRole="student" />
+  </EntityType>
+  <EntityType Name="userpersonalinfo">
+    <Key>
+      <PropertyRef Name="userper_id" />
+    </Key>
+    <Property Name="userper_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="userper_dob" Type="DateTime" />
+    <Property Name="userper_gender" Type="Int32" />
+    <Property Name="userper_countryid" Type="Int32" />
+    <Property Name="userper_stateid" Type="Int32" />
+    <Property Name="userper_cityid" Type="Int32" />
+    <Property Name="userper_favoiritesubjects" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="userper_sports" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="userper_hobbies" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="userper_personalities" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="userper_books" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="userper_movies" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="userper_mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="userper_alternatemobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="userper_profile_pic" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="teachers" Relationship="cubitModel.teacher_user_id" FromRole="userpersonalinfo" ToRole="teacher" />
+  </EntityType>
+  <Association Name="group_id">
+    <End Role="group" Type="Self.group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="usergroup" Type="Self.usergroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="group">
+        <PropertyRef Name="group_id" />
+      </Principal>
+      <Dependent Role="usergroup">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_id">
+    <End Role="userinfo" Type="Self.userinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="group" Type="Self.group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userinfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="group">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parent_user_id">
+    <End Role="userinfo" Type="Self.userinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parent" Type="Self.parent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userinfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="parent">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cubitEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="authtokens" EntityType="Self.authtoken" />
+    <EntitySet Name="cities" EntityType="Self.city" />
+    <EntitySet Name="classes" EntityType="Self.class" />
+    <EntitySet Name="countries" EntityType="Self.country" />
+    <EntitySet Name="friends" EntityType="Self.friend" />
+    <EntitySet Name="gpslocations" EntityType="Self.gpslocation" />
+    <EntitySet Name="groups" EntityType="Self.group" />
+    <EntitySet Name="instclssectionmappings" EntityType="Self.instclssectionmapping" />
+    <EntitySet Name="parents" EntityType="Self.parent" />
+    <EntitySet Name="posts" EntityType="Self.post" />
+    <EntitySet Name="requeststatus" EntityType="Self.requeststatu" />
+    <EntitySet Name="sections" EntityType="Self.section" />
+    <EntitySet Name="sectsubjmappings" EntityType="Self.sectsubjmapping" />
+    <EntitySet Name="states" EntityType="Self.state" />
+    <EntitySet Name="subjects" EntityType="Self.subject" />
+    <EntitySet Name="usergroups" EntityType="Self.usergroup" />
+    <EntitySet Name="userinfoes" EntityType="Self.userinfo" />
+    <EntitySet Name="userpersonalinfoes" EntityType="Self.userpersonalinfo" />
+    <AssociationSet Name="group_id" Association="Self.group_id">
+      <End Role="group" EntitySet="groups" />
+      <End Role="usergroup" EntitySet="usergroups" />
+    </AssociationSet>
+    <AssociationSet Name="user_id" Association="Self.user_id">
+      <End Role="userinfo" EntitySet="userinfoes" />
+      <End Role="group" EntitySet="groups" />
+    </AssociationSet>
+    <AssociationSet Name="parent_user_id" Association="Self.parent_user_id">
+      <End Role="userinfo" EntitySet="userinfoes" />
+      <End Role="parent" EntitySet="parents" />
+    </AssociationSet>
+    <EntitySet Name="documents" EntityType="cubitModel.document" />
+    <EntitySet Name="eventposts" EntityType="cubitModel.eventpost" />
+    <EntitySet Name="teachers" EntityType="cubitModel.teacher" />
+    <AssociationSet Name="teacher_user_id" Association="cubitModel.teacher_user_id">
+      <End Role="userpersonalinfo" EntitySet="userpersonalinfoes" />
+      <End Role="teacher" EntitySet="teachers" />
+    </AssociationSet>
+    <EntitySet Name="timetables" EntityType="cubitModel.timetable" />
+    <EntitySet Name="periodtimetables" EntityType="cubitModel.periodtimetable" />
+    <EntitySet Name="examreportmappings" EntityType="cubitModel.examreportmapping" />
+    <EntitySet Name="examschedules" EntityType="cubitModel.examschedule" />
+    <EntitySet Name="homeworkuploads" EntityType="cubitModel.homeworkupload" />
+    <EntitySet Name="quizquestions" EntityType="cubitModel.quizquestion" />
+    <EntitySet Name="quizresults" EntityType="cubitModel.quizresult" />
+    <EntitySet Name="homework" EntityType="cubitModel.homework" />
+    <EntitySet Name="reportcards" EntityType="cubitModel.reportcard" />
+    <EntitySet Name="students" EntityType="cubitModel.student" />
+    <AssociationSet Name="student_class_id" Association="cubitModel.student_class_id">
+      <End Role="class" EntitySet="classes" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="student_user_id" Association="cubitModel.student_user_id">
+      <End Role="userinfo" EntitySet="userinfoes" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <EntitySet Name="institutions" EntityType="cubitModel.institution" />
+    <AssociationSet Name="student_institution_id" Association="cubitModel.student_institution_id">
+      <End Role="institution" EntitySet="institutions" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="doc_id" />
+    </Key>
+    <Property Name="doc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="doc_url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="doc_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="doc_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="doc_uploaddate" Type="DateTime" Nullable="false" />
+    <Property Name="doc_extension" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="doc_size" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="eventpost">
+    <Key>
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="event_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="event_description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="event_startdate" Type="DateTime" />
+    <Property Name="event_enddate" Type="DateTime" />
+    <Property Name="event_document_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="event_gpslocation_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="event_venue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="event_user_type" Type="Int32" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+    </Key>
+    <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="teacher_code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="teacher_institution_id" Type="Int32" />
+    <NavigationProperty Name="userpersonalinfo" Relationship="cubitModel.teacher_user_id" FromRole="teacher" ToRole="userpersonalinfo" />
+  </EntityType>
+  <Association Name="teacher_user_id">
+    <End Type="cubitModel.userpersonalinfo" Role="userpersonalinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="cubitModel.teacher" Role="teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userpersonalinfo">
+        <PropertyRef Name="userper_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="timetable">
+    <Key>
+      <PropertyRef Name="timetable_id" />
+    </Key>
+    <Property Name="timetable_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="class_id" Type="Int32" />
+    <Property Name="section_id" Type="Int32" />
+    <Property Name="institution_id" Type="Int32" Nullable="false" />
+    <Property Name="isactive" Type="Boolean" />
+    <Property Name="createdby" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="createddate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="periodtimetable">
+    <Key>
+      <PropertyRef Name="pttable_id" />
+    </Key>
+    <Property Name="pttable_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="timetable_id" Type="Int32" />
+    <Property Name="starttime" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="endtime" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="period_no" Type="Int32" />
+    <Property Name="teacher_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="day" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="examreportmapping">
+    <Key>
+      <PropertyRef Name="erm_id" />
+    </Key>
+    <Property Name="erm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="erm_section_id" Type="Int32" />
+    <Property Name="erm_class_id" Type="Int32" />
+    <Property Name="erm_institution_id" Type="Int32" Nullable="false" />
+    <Property Name="exam_term" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="examschedule">
+    <Key>
+      <PropertyRef Name="examsec_id" />
+    </Key>
+    <Property Name="examsec_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="erm_id" Type="Int32" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="exam_date" Type="DateTime" Nullable="false" />
+    <Property Name="exam_term" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="homeworkupload">
+    <Key>
+      <PropertyRef Name="homeworkupload_id" />
+    </Key>
+    <Property Name="homeworkupload_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="homework_id" Type="Int32" Nullable="false" />
+    <Property Name="hw_student_id" Type="Int32" Nullable="false" />
+    <Property Name="hw_url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="isactive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="quizquestion">
+    <Key>
+      <PropertyRef Name="ques_id" />
+    </Key>
+    <Property Name="ques_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="erm_id" Type="Int32" Nullable="false" />
+    <Property Name="teacher_id" Type="Int32" />
+    <Property Name="subject_id" Type="Int32" />
+    <Property Name="question" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="choices" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="is_active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="quizresult">
+    <Key>
+      <PropertyRef Name="qui_res_id" />
+    </Key>
+    <Property Name="qui_res_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="erm_id" Type="Int32" Nullable="false" />
+    <Property Name="student_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_id" Type="Int32" />
+    <Property Name="ques_id" Type="Int32" />
+    <Property Name="select_ans" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="result" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="homework">
+    <Key>
+      <PropertyRef Name="homework_id" />
+    </Key>
+    <Property Name="homework_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hw_institution_id" Type="Int32" Nullable="false" />
+    <Property Name="hw_section_id" Type="Int32" />
+    <Property Name="hw_class_id" Type="Int32" />
+    <Property Name="hw_teacher_id" Type="Int32" />
+    <Property Name="hw_subject_id" Type="Int32" Nullable="false" />
+    <Property Name="hw_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="hw_date" Type="DateTime" Nullable="false" />
+    <Property Name="isactive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="reportcard">
+    <Key>
+      <PropertyRef Name="recard_id" />
+    </Key>
+    <Property Name="recard_id" Type="Int32" Nullable="false" />
+    <Property Name="erm_id" Type="Int32" Nullable="false" />
+    <Property Name="student_id" Type="Int32" Nullable="false" />
+    <Property Name="marks" Type="Int32" Nullable="false" />
+    <Property Name="grade" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="erm_term" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="student_father_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="student_mother_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="student_regid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="student_roll_no" Type="Int32" Nullable="false" />
+    <Property Name="student_section" Type="Int32" />
+    <Property Name="student_class" Type="Int32" Nullable="false" />
+    <Property Name="student_institution_id" Type="Int32" Nullable="false" />
+    <Property Name="student_cca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="student_eca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="class" Relationship="cubitModel.student_class_id" FromRole="student" ToRole="class" />
+    <NavigationProperty Name="userinfo" Relationship="cubitModel.student_user_id" FromRole="student" ToRole="userinfo" />
+    <NavigationProperty Name="institution" Relationship="cubitModel.student_institution_id" FromRole="student" ToRole="institution" />
+  </EntityType>
+  <Association Name="student_class_id">
+    <End Type="cubitModel.class" Role="class" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="cubitModel.student" Role="student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="student_class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="student_user_id">
+    <End Type="cubitModel.userinfo" Role="userinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="cubitModel.student" Role="student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userinfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="institution">
+    <Key>
+      <PropertyRef Name="institution_id" />
+    </Key>
+    <Property Name="institution_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="institution_country" Type="Int32" Nullable="false" />
+    <Property Name="institution_state" Type="Int32" Nullable="false" />
+    <Property Name="institution_city" Type="Int32" Nullable="false" />
+    <Property Name="institution_name" Type="String" Nullable="false" MaxLength="65" FixedLength="false" Unicode="false" />
+    <Property Name="institution_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="institution_website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="institution_poc" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="institution_nostudents" Type="Int32" />
+    <Property Name="institution_class_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="students" Relationship="cubitModel.student_institution_id" FromRole="institution" ToRole="student" />
+  </EntityType>
+  <Association Name="student_institution_id">
+    <End Type="cubitModel.institution" Role="institution" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="cubitModel.student" Role="student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="institution">
+        <PropertyRef Name="institution_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="student_institution_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

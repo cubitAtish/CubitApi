@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cubitModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="authtoken">
+    <Key>
+      <PropertyRef Name="token_id" />
+    </Key>
+    <Property Name="token_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="token_key" Type="varchar" MaxLength="200" />
+    <Property Name="token_expiry" Type="datetime" Precision="0" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="crdate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city_name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="city_stateid" Type="int" Nullable="false" />
+    <Property Name="city_isactive" Type="bool" Nullable="false" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="class_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="class_name" Type="varchar" MaxLength="45" />
+    <Property Name="class_description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="country_id" />
+    </Key>
+    <Property Name="country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country_name" Type="varchar" MaxLength="45" />
+    <Property Name="country_isactive" Type="bool" />
+  </EntityType>
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="doc_id" />
+    </Key>
+    <Property Name="doc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="doc_url" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="doc_name" Type="varchar" MaxLength="100" />
+    <Property Name="doc_description" Type="varchar" MaxLength="100" />
+    <Property Name="doc_uploaddate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="doc_extension" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="doc_size" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eventpost">
+    <Key>
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="event_title" Type="varchar" MaxLength="100" />
+    <Property Name="event_description" Type="varchar" MaxLength="500" />
+    <Property Name="event_startdate" Type="datetime" Precision="0" />
+    <Property Name="event_enddate" Type="datetime" Precision="0" />
+    <Property Name="event_document_id" Type="varchar" MaxLength="50" />
+    <Property Name="event_gpslocation_id" Type="varchar" MaxLength="50" />
+    <Property Name="event_venue" Type="varchar" MaxLength="100" />
+    <Property Name="event_user_type" Type="int" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="examreportmapping">
+    <Key>
+      <PropertyRef Name="erm_id" />
+    </Key>
+    <Property Name="erm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="erm_section_id" Type="int" />
+    <Property Name="erm_class_id" Type="int" />
+    <Property Name="erm_institution_id" Type="int" Nullable="false" />
+    <Property Name="exam_term" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="examschedule">
+    <Key>
+      <PropertyRef Name="examsec_id" />
+    </Key>
+    <Property Name="examsec_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="erm_id" Type="int" />
+    <Property Name="subject_id" Type="int" Nullable="false" />
+    <Property Name="subject_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="exam_date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="exam_term" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="friends">
+    <Key>
+      <PropertyRef Name="friends_id" />
+    </Key>
+    <Property Name="friends_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="from_user_id" Type="int" Nullable="false" />
+    <Property Name="to_user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gpslocation">
+    <Key>
+      <PropertyRef Name="gpslocation_id" />
+    </Key>
+    <Property Name="gpslocation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gpslocation_discription" Type="varchar" MaxLength="100" />
+    <Property Name="gpslocation_name" Type="varchar" MaxLength="100" />
+    <Property Name="gpslocation_location" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_name" Type="varchar" MaxLength="35" />
+    <Property Name="group_isactive" Type="bool" Nullable="false" />
+    <Property Name="group_description" Type="longtext" />
+    <Property Name="group_privacy" Type="int" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="homework">
+    <Key>
+      <PropertyRef Name="homework_id" />
+    </Key>
+    <Property Name="homework_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hw_institution_id" Type="int" Nullable="false" />
+    <Property Name="hw_section_id" Type="int" />
+    <Property Name="hw_class_id" Type="int" />
+    <Property Name="hw_teacher_id" Type="int" />
+    <Property Name="hw_subject_id" Type="int" Nullable="false" />
+    <Property Name="hw_description" Type="varchar" MaxLength="100" />
+    <Property Name="hw_date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="isactive" Type="bool" />
+  </EntityType>
+  <EntityType Name="homeworkupload">
+    <Key>
+      <PropertyRef Name="homeworkupload_id" />
+    </Key>
+    <Property Name="homeworkupload_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="homework_id" Type="int" Nullable="false" />
+    <Property Name="hw_student_id" Type="int" Nullable="false" />
+    <Property Name="hw_url" Type="varchar" MaxLength="100" />
+    <Property Name="isactive" Type="bool" />
+  </EntityType>
+  <EntityType Name="instclssectionmapping">
+    <Key>
+      <PropertyRef Name="instclssection_id" />
+    </Key>
+    <Property Name="instclssection_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="institution_id" Type="int" Nullable="false" />
+    <Property Name="class_id" Type="int" Nullable="false" />
+    <Property Name="section_id" Type="int" Nullable="false" />
+    <Property Name="instclssection_strength" Type="int" />
+    <Property Name="instclssection_teacher_id" Type="int" />
+  </EntityType>
+  <EntityType Name="institution">
+    <Key>
+      <PropertyRef Name="institution_id" />
+    </Key>
+    <Property Name="institution_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="institution_country" Type="int" Nullable="false" />
+    <Property Name="institution_state" Type="int" Nullable="false" />
+    <Property Name="institution_city" Type="int" Nullable="false" />
+    <Property Name="institution_name" Type="varchar" MaxLength="65" Nullable="false" />
+    <Property Name="institution_address" Type="varchar" MaxLength="200" />
+    <Property Name="institution_website" Type="varchar" MaxLength="100" />
+    <Property Name="institution_poc" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="institution_nostudents" Type="int" />
+    <Property Name="institution_class_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="parent">
+    <Key>
+      <PropertyRef Name="parent_id" />
+    </Key>
+    <Property Name="parent_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="parent_childeren" Type="varchar" MaxLength="45" />
+    <Property Name="parent_occupation" Type="varchar" MaxLength="45" />
+    <Property Name="parent_nameofspouse" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="periodtimetable">
+    <Key>
+      <PropertyRef Name="pttable_id" />
+    </Key>
+    <Property Name="pttable_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="timetable_id" Type="int" />
+    <Property Name="starttime" Type="varchar" MaxLength="7" />
+    <Property Name="endtime" Type="varchar" MaxLength="7" />
+    <Property Name="period_no" Type="int" />
+    <Property Name="teacher_name" Type="varchar" MaxLength="100" />
+    <Property Name="day" Type="varchar" MaxLength="9" />
+    <Property Name="subject" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="post_id" />
+    </Key>
+    <Property Name="post_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="post_doc_id" Type="varchar" MaxLength="50" />
+    <Property Name="post_gpslocation_id" Type="varchar" MaxLength="50" />
+    <Property Name="post_date" Type="datetime" Precision="0" />
+    <Property Name="post_user_type" Type="int" />
+    <Property Name="post_feeds" Type="varchar" MaxLength="200" />
+    <Property Name="post_tag_user_id" Type="varchar" MaxLength="100" />
+    <Property Name="post_event_id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="quizquestions">
+    <Key>
+      <PropertyRef Name="ques_id" />
+    </Key>
+    <Property Name="ques_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="erm_id" Type="int" Nullable="false" />
+    <Property Name="teacher_id" Type="int" />
+    <Property Name="subject_id" Type="int" />
+    <Property Name="question" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="choices" Type="varchar" MaxLength="300" />
+    <Property Name="answer" Type="varchar" MaxLength="100" />
+    <Property Name="is_active" Type="bool" />
+  </EntityType>
+  <EntityType Name="quizresult">
+    <Key>
+      <PropertyRef Name="qui_res_id" />
+    </Key>
+    <Property Name="qui_res_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="erm_id" Type="int" Nullable="false" />
+    <Property Name="student_id" Type="int" Nullable="false" />
+    <Property Name="subject_id" Type="int" />
+    <Property Name="ques_id" Type="int" />
+    <Property Name="select_ans" Type="varchar" MaxLength="100" />
+    <Property Name="result" Type="bool" />
+  </EntityType>
+  <EntityType Name="reportcard">
+    <Key>
+      <PropertyRef Name="recard_id" />
+    </Key>
+    <Property Name="recard_id" Type="int" Nullable="false" />
+    <Property Name="erm_id" Type="int" Nullable="false" />
+    <Property Name="student_id" Type="int" Nullable="false" />
+    <Property Name="marks" Type="int" Nullable="false" />
+    <Property Name="grade" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="erm_term" Type="varchar" MaxLength="6" />
+    <Property Name="subject_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="requeststatus">
+    <Key>
+      <PropertyRef Name="requeststatus_id" />
+    </Key>
+    <Property Name="requeststatus_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="request_from" Type="int" Nullable="false" />
+    <Property Name="request_to" Type="int" Nullable="false" />
+    <Property Name="request_status" Type="smallint" Nullable="false" />
+    <Property Name="request_for_group" Type="int" Nullable="false" />
+    <Property Name="request_note" Type="text" />
+    <Property Name="request_crdate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="request_upddate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="section">
+    <Key>
+      <PropertyRef Name="section_id" />
+    </Key>
+    <Property Name="section_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="section_name" Type="varchar" MaxLength="45" />
+    <Property Name="section_description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="sectsubjmapping">
+    <Key>
+      <PropertyRef Name="sectsubjmapping_id" />
+    </Key>
+    <Property Name="sectsubjmapping_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="instclssection_id" Type="int" Nullable="false" />
+    <Property Name="subject_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="state_id" />
+    </Key>
+    <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="state_name" Type="varchar" MaxLength="100" />
+    <Property Name="state_countryid" Type="int" />
+    <Property Name="state_isactive" Type="bool" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="student_father_name" Type="varchar" MaxLength="100" />
+    <Property Name="student_mother_name" Type="varchar" MaxLength="100" />
+    <Property Name="student_regid" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="student_roll_no" Type="int" Nullable="false" />
+    <Property Name="student_section" Type="int" />
+    <Property Name="student_class" Type="int" Nullable="false" />
+    <Property Name="student_institution_id" Type="int" Nullable="false" />
+    <Property Name="student_cca" Type="varchar" MaxLength="200" />
+    <Property Name="student_eca" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="subjects">
+    <Key>
+      <PropertyRef Name="subject_id" />
+    </Key>
+    <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subject_name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="subject_syllabus" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+    </Key>
+    <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="teacher_code" Type="varchar" MaxLength="45" />
+    <Property Name="teacher_institution_id" Type="int" />
+  </EntityType>
+  <EntityType Name="timetable">
+    <Key>
+      <PropertyRef Name="timetable_id" />
+    </Key>
+    <Property Name="timetable_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="class_id" Type="int" />
+    <Property Name="section_id" Type="int" />
+    <Property Name="institution_id" Type="int" Nullable="false" />
+    <Property Name="isactive" Type="bool" />
+    <Property Name="createdby" Type="varchar" MaxLength="100" />
+    <Property Name="createddate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="usergroup">
+    <Key>
+      <PropertyRef Name="usergroup_id" />
+    </Key>
+    <Property Name="usergroup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="fromuser_id" Type="int" Nullable="false" />
+    <Property Name="touser_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="100" />
+    <Property Name="user_email" Type="varchar" MaxLength="100" />
+    <Property Name="user_password" Type="varchar" MaxLength="200" />
+    <Property Name="user_isactive" Type="bool" />
+    <Property Name="user_locked" Type="bool" />
+    <Property Name="user_failedattempt" Type="int" />
+    <Property Name="user_lockedtilldate" Type="datetime" Precision="0" />
+    <Property Name="user_type" Type="int" />
+    <Property Name="user_crdate" Type="datetime" Precision="0" />
+    <Property Name="user_crby" Type="int" />
+    <Property Name="user_upddate" Type="datetime" Precision="0" />
+    <Property Name="user_updby" Type="int" />
+    <Property Name="user_alternatemail" Type="varchar" MaxLength="100" />
+    <Property Name="pwdchange_oldpwd" Type="varchar" MaxLength="200" />
+    <Property Name="pwdchange_newpwd" Type="varchar" MaxLength="200" />
+    <Property Name="pwdchange_redate" Type="datetime" Precision="0" />
+    <Property Name="pwdchange_upddate" Type="datetime" Precision="0" />
+    <Property Name="pwdchange_guid" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="userpersonalinfo">
+    <Key>
+      <PropertyRef Name="userper_id" />
+    </Key>
+    <Property Name="userper_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="userper_dob" Type="date" />
+    <Property Name="userper_gender" Type="int" />
+    <Property Name="userper_countryid" Type="int" />
+    <Property Name="userper_stateid" Type="int" />
+    <Property Name="userper_cityid" Type="int" />
+    <Property Name="userper_favoiritesubjects" Type="varchar" MaxLength="200" />
+    <Property Name="userper_sports" Type="varchar" MaxLength="200" />
+    <Property Name="userper_hobbies" Type="varchar" MaxLength="200" />
+    <Property Name="userper_personalities" Type="varchar" MaxLength="200" />
+    <Property Name="userper_books" Type="varchar" MaxLength="200" />
+    <Property Name="userper_movies" Type="varchar" MaxLength="200" />
+    <Property Name="userper_mobile" Type="varchar" MaxLength="15" />
+    <Property Name="userper_alternatemobile" Type="varchar" MaxLength="15" />
+    <Property Name="userper_profile_pic" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="group_id">
+    <End Role="group" Type="Self.group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="usergroup" Type="Self.usergroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="group">
+        <PropertyRef Name="group_id" />
+      </Principal>
+      <Dependent Role="usergroup">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parent_user_id">
+    <End Role="userinfo" Type="Self.userinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parent" Type="Self.parent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userinfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="parent">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="student_class_id">
+    <End Role="class" Type="Self.class" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="student_class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="student_institution_id">
+    <End Role="institution" Type="Self.institution" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="institution">
+        <PropertyRef Name="institution_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="student_institution_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="student_user_id">
+    <End Role="userinfo" Type="Self.userinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userinfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="teacher_user_id">
+    <End Role="userpersonalinfo" Type="Self.userpersonalinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userpersonalinfo">
+        <PropertyRef Name="userper_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_id">
+    <End Role="userinfo" Type="Self.userinfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="group" Type="Self.group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userinfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="group">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cubitModelStoreContainer">
+    <EntitySet Name="authtoken" EntityType="Self.authtoken" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="class" EntityType="Self.class" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="country" EntityType="Self.country" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="document" EntityType="Self.document" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="eventpost" EntityType="Self.eventpost" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="examreportmapping" EntityType="Self.examreportmapping" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="examschedule" EntityType="Self.examschedule" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="friends" EntityType="Self.friends" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="gpslocation" EntityType="Self.gpslocation" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="group" EntityType="Self.group" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="homework" EntityType="Self.homework" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="homeworkupload" EntityType="Self.homeworkupload" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="instclssectionmapping" EntityType="Self.instclssectionmapping" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="institution" EntityType="Self.institution" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="parent" EntityType="Self.parent" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="periodtimetable" EntityType="Self.periodtimetable" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="post" EntityType="Self.post" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="quizquestions" EntityType="Self.quizquestions" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="quizresult" EntityType="Self.quizresult" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="reportcard" EntityType="Self.reportcard" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="requeststatus" EntityType="Self.requeststatus" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="section" EntityType="Self.section" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="sectsubjmapping" EntityType="Self.sectsubjmapping" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="state" EntityType="Self.state" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="subjects" EntityType="Self.subjects" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="timetable" EntityType="Self.timetable" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="usergroup" EntityType="Self.usergroup" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="cubit" store:Type="Tables" />
+    <EntitySet Name="userpersonalinfo" EntityType="Self.userpersonalinfo" Schema="cubit" store:Type="Tables" />
+    <AssociationSet Name="group_id" Association="Self.group_id">
+      <End Role="group" EntitySet="group" />
+      <End Role="usergroup" EntitySet="usergroup" />
+    </AssociationSet>
+    <AssociationSet Name="parent_user_id" Association="Self.parent_user_id">
+      <End Role="userinfo" EntitySet="userinfo" />
+      <End Role="parent" EntitySet="parent" />
+    </AssociationSet>
+    <AssociationSet Name="student_class_id" Association="Self.student_class_id">
+      <End Role="class" EntitySet="class" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="student_institution_id" Association="Self.student_institution_id">
+      <End Role="institution" EntitySet="institution" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="student_user_id" Association="Self.student_user_id">
+      <End Role="userinfo" EntitySet="userinfo" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="teacher_user_id" Association="Self.teacher_user_id">
+      <End Role="userpersonalinfo" EntitySet="userpersonalinfo" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+    <AssociationSet Name="user_id" Association="Self.user_id">
+      <End Role="userinfo" EntitySet="userinfo" />
+      <End Role="group" EntitySet="group" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

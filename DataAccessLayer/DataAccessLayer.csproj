@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41832A6F-9CFB-447D-9690-259AC6B02A37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="authtoken.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="city.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="class.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="country.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CubitSofModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CubitSofModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CubitSofModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CubitSofModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CubitSofModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DALInterface\IUserInfoDAL.cs" />
+    <Compile Include="document.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enum\EnumRequestStatus.cs" />
+    <Compile Include="eventpost.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="examreportmapping.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="examschedule.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="friend.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gpslocation.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="group.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="homework.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="homeworkupload.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="instclssectionmapping.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="institution.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="parent.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="periodtimetable.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="post.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quizquestion.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="quizresult.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reportcard.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="requeststatu.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="section.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sectsubjmapping.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="state.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="student.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subject.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="teacher.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="timetable.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usergroup.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userinfo.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoDAL.cs" />
+    <Compile Include="userpersonalinfo.cs">
+      <DependentUpon>CubitSofModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassEntities\ClassEntities.csproj">
+      <Project>{fe3f02bb-ae14-4955-8f5a-fdd2b20dd29a}</Project>
+      <Name>ClassEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionUtility\ExceptionUtility.csproj">
+      <Project>{f33b8ff6-1548-491c-b6c3-9a449190c2e2}</Project>
+      <Name>ExceptionUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="CubitSofModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CubitSofModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CubitSofModel.edmx.diagram">
+      <DependentUpon>CubitSofModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CubitSofModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CubitSofModel.edmx</DependentUpon>
+      <LastGenOutput>CubitSofModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CubitSofModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CubitSofModel.edmx</DependentUpon>
+      <LastGenOutput>CubitSofModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,13 @@
+D:\Girish_Sir\Application\EduSoul\ClassEntities\bin\Debug\ClassEntities.dll
+D:\Girish_Sir\Application\EduSoul\ClassEntities\bin\Debug\ClassEntities.pdb
+D:\Girish_Sir\Application\EduSoul\ClassEntities\obj\Debug\ClassEntities.dll
+D:\Girish_Sir\Application\EduSoul\ClassEntities\obj\Debug\ClassEntities.pdb
+D:\Girish_Sir\Application\Cubit\ClassEntities\bin\Debug\ClassEntities.dll
+D:\Girish_Sir\Application\Cubit\ClassEntities\bin\Debug\ClassEntities.pdb
+D:\Girish_Sir\Application\Cubit\ClassEntities\obj\Debug\ClassEntities.dll
+D:\Girish_Sir\Application\Cubit\ClassEntities\obj\Debug\ClassEntities.pdb
+C:\Users\User\Desktop\Cubit[17-11-2016]\ClassEntities\bin\Debug\ClassEntities.dll
+C:\Users\User\Desktop\Cubit[17-11-2016]\ClassEntities\bin\Debug\ClassEntities.pdb
+C:\Users\User\Desktop\Cubit[17-11-2016]\ClassEntities\obj\Debug\ClassEntities.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Cubit[17-11-2016]\ClassEntities\obj\Debug\ClassEntities.dll
+C:\Users\User\Desktop\Cubit[17-11-2016]\ClassEntities\obj\Debug\ClassEntities.pdb

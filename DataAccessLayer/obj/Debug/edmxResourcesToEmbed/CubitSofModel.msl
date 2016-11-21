@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cubitModelStoreContainer" CdmEntityContainer="cubitEntities">
+    <EntitySetMapping Name="authtokens">
+      <EntityTypeMapping TypeName="cubitModel.authtoken">
+        <MappingFragment StoreEntitySet="authtoken">
+          <ScalarProperty Name="token_id" ColumnName="token_id" />
+          <ScalarProperty Name="token_key" ColumnName="token_key" />
+          <ScalarProperty Name="token_expiry" ColumnName="token_expiry" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="crdate" ColumnName="crdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="cubitModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+          <ScalarProperty Name="city_stateid" ColumnName="city_stateid" />
+          <ScalarProperty Name="city_isactive" ColumnName="city_isactive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="classes">
+      <EntityTypeMapping TypeName="cubitModel.class">
+        <MappingFragment StoreEntitySet="class">
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="class_name" ColumnName="class_name" />
+          <ScalarProperty Name="class_description" ColumnName="class_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="cubitModel.country">
+        <MappingFragment StoreEntitySet="country">
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+          <ScalarProperty Name="country_isactive" ColumnName="country_isactive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="friends">
+      <EntityTypeMapping TypeName="cubitModel.friend">
+        <MappingFragment StoreEntitySet="friends">
+          <ScalarProperty Name="friends_id" ColumnName="friends_id" />
+          <ScalarProperty Name="from_user_id" ColumnName="from_user_id" />
+          <ScalarProperty Name="to_user_id" ColumnName="to_user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gpslocations">
+      <EntityTypeMapping TypeName="cubitModel.gpslocation">
+        <MappingFragment StoreEntitySet="gpslocation">
+          <ScalarProperty Name="gpslocation_id" ColumnName="gpslocation_id" />
+          <ScalarProperty Name="gpslocation_discription" ColumnName="gpslocation_discription" />
+          <ScalarProperty Name="gpslocation_name" ColumnName="gpslocation_name" />
+          <ScalarProperty Name="gpslocation_location" ColumnName="gpslocation_location" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="groups">
+      <EntityTypeMapping TypeName="cubitModel.group">
+        <MappingFragment StoreEntitySet="group">
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="group_isactive" ColumnName="group_isactive" />
+          <ScalarProperty Name="group_description" ColumnName="group_description" />
+          <ScalarProperty Name="group_privacy" ColumnName="group_privacy" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="instclssectionmappings">
+      <EntityTypeMapping TypeName="cubitModel.instclssectionmapping">
+        <MappingFragment StoreEntitySet="instclssectionmapping">
+          <ScalarProperty Name="instclssection_id" ColumnName="instclssection_id" />
+          <ScalarProperty Name="institution_id" ColumnName="institution_id" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+          <ScalarProperty Name="instclssection_strength" ColumnName="instclssection_strength" />
+          <ScalarProperty Name="instclssection_teacher_id" ColumnName="instclssection_teacher_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parents">
+      <EntityTypeMapping TypeName="cubitModel.parent">
+        <MappingFragment StoreEntitySet="parent">
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="parent_childeren" ColumnName="parent_childeren" />
+          <ScalarProperty Name="parent_occupation" ColumnName="parent_occupation" />
+          <ScalarProperty Name="parent_nameofspouse" ColumnName="parent_nameofspouse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="posts">
+      <EntityTypeMapping TypeName="cubitModel.post">
+        <MappingFragment StoreEntitySet="post">
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="post_doc_id" ColumnName="post_doc_id" />
+          <ScalarProperty Name="post_gpslocation_id" ColumnName="post_gpslocation_id" />
+          <ScalarProperty Name="post_date" ColumnName="post_date" />
+          <ScalarProperty Name="post_user_type" ColumnName="post_user_type" />
+          <ScalarProperty Name="post_feeds" ColumnName="post_feeds" />
+          <ScalarProperty Name="post_tag_user_id" ColumnName="post_tag_user_id" />
+          <ScalarProperty Name="post_event_id" ColumnName="post_event_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requeststatus">
+      <EntityTypeMapping TypeName="cubitModel.requeststatu">
+        <MappingFragment StoreEntitySet="requeststatus">
+          <ScalarProperty Name="requeststatus_id" ColumnName="requeststatus_id" />
+          <ScalarProperty Name="request_from" ColumnName="request_from" />
+          <ScalarProperty Name="request_to" ColumnName="request_to" />
+          <ScalarProperty Name="request_status" ColumnName="request_status" />
+          <ScalarProperty Name="request_for_group" ColumnName="request_for_group" />
+          <ScalarProperty Name="request_note" ColumnName="request_note" />
+          <ScalarProperty Name="request_crdate" ColumnName="request_crdate" />
+          <ScalarProperty Name="request_upddate" ColumnName="request_upddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sections">
+      <EntityTypeMapping TypeName="cubitModel.section">
+        <MappingFragment StoreEntitySet="section">
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+          <ScalarProperty Name="section_name" ColumnName="section_name" />
+          <ScalarProperty Name="section_description" ColumnName="section_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sectsubjmappings">
+      <EntityTypeMapping TypeName="cubitModel.sectsubjmapping">
+        <MappingFragment StoreEntitySet="sectsubjmapping">
+          <ScalarProperty Name="sectsubjmapping_id" ColumnName="sectsubjmapping_id" />
+          <ScalarProperty Name="instclssection_id" ColumnName="instclssection_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="cubitModel.state">
+        <MappingFragment StoreEntitySet="state">
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="state_name" ColumnName="state_name" />
+          <ScalarProperty Name="state_countryid" ColumnName="state_countryid" />
+          <ScalarProperty Name="state_isactive" ColumnName="state_isactive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="cubitModel.subject">
+        <MappingFragment StoreEntitySet="subjects">
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+          <ScalarProperty Name="subject_syllabus" ColumnName="subject_syllabus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usergroups">
+      <EntityTypeMapping TypeName="cubitModel.usergroup">
+        <MappingFragment StoreEntitySet="usergroup">
+          <ScalarProperty Name="usergroup_id" ColumnName="usergroup_id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="fromuser_id" ColumnName="fromuser_id" />
+          <ScalarProperty Name="touser_id" ColumnName="touser_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfoes">
+      <EntityTypeMapping TypeName="cubitModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_isactive" ColumnName="user_isactive" />
+          <ScalarProperty Name="user_locked" ColumnName="user_locked" />
+          <ScalarProperty Name="user_failedattempt" ColumnName="user_failedattempt" />
+          <ScalarProperty Name="user_lockedtilldate" ColumnName="user_lockedtilldate" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="user_crdate" ColumnName="user_crdate" />
+          <ScalarProperty Name="user_crby" ColumnName="user_crby" />
+          <ScalarProperty Name="user_upddate" ColumnName="user_upddate" />
+          <ScalarProperty Name="user_updby" ColumnName="user_updby" />
+          <ScalarProperty Name="user_alternatemail" ColumnName="user_alternatemail" />
+          <ScalarProperty Name="pwdchange_oldpwd" ColumnName="pwdchange_oldpwd" />
+          <ScalarProperty Name="pwdchange_newpwd" ColumnName="pwdchange_newpwd" />
+          <ScalarProperty Name="pwdchange_redate" ColumnName="pwdchange_redate" />
+          <ScalarProperty Name="pwdchange_upddate" ColumnName="pwdchange_upddate" />
+          <ScalarProperty Name="pwdchange_guid" ColumnName="pwdchange_guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userpersonalinfoes">
+      <EntityTypeMapping TypeName="cubitModel.userpersonalinfo">
+        <MappingFragment StoreEntitySet="userpersonalinfo">
+          <ScalarProperty Name="userper_id" ColumnName="userper_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="userper_dob" ColumnName="userper_dob" />
+          <ScalarProperty Name="userper_gender" ColumnName="userper_gender" />
+          <ScalarProperty Name="userper_countryid" ColumnName="userper_countryid" />
+          <ScalarProperty Name="userper_stateid" ColumnName="userper_stateid" />
+          <ScalarProperty Name="userper_cityid" ColumnName="userper_cityid" />
+          <ScalarProperty Name="userper_favoiritesubjects" ColumnName="userper_favoiritesubjects" />
+          <ScalarProperty Name="userper_sports" ColumnName="userper_sports" />
+          <ScalarProperty Name="userper_hobbies" ColumnName="userper_hobbies" />
+          <ScalarProperty Name="userper_personalities" ColumnName="userper_personalities" />
+          <ScalarProperty Name="userper_books" ColumnName="userper_books" />
+          <ScalarProperty Name="userper_movies" ColumnName="userper_movies" />
+          <ScalarProperty Name="userper_mobile" ColumnName="userper_mobile" />
+          <ScalarProperty Name="userper_alternatemobile" ColumnName="userper_alternatemobile" />
+          <ScalarProperty Name="userper_profile_pic" ColumnName="userper_profile_pic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="documents">
+      <EntityTypeMapping TypeName="cubitModel.document">
+        <MappingFragment StoreEntitySet="document">
+          <ScalarProperty Name="doc_size" ColumnName="doc_size" />
+          <ScalarProperty Name="doc_extension" ColumnName="doc_extension" />
+          <ScalarProperty Name="doc_uploaddate" ColumnName="doc_uploaddate" />
+          <ScalarProperty Name="doc_description" ColumnName="doc_description" />
+          <ScalarProperty Name="doc_name" ColumnName="doc_name" />
+          <ScalarProperty Name="doc_url" ColumnName="doc_url" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="doc_id" ColumnName="doc_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventposts">
+      <EntityTypeMapping TypeName="cubitModel.eventpost">
+        <MappingFragment StoreEntitySet="eventpost">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="event_user_type" ColumnName="event_user_type" />
+          <ScalarProperty Name="event_venue" ColumnName="event_venue" />
+          <ScalarProperty Name="event_gpslocation_id" ColumnName="event_gpslocation_id" />
+          <ScalarProperty Name="event_document_id" ColumnName="event_document_id" />
+          <ScalarProperty Name="event_enddate" ColumnName="event_enddate" />
+          <ScalarProperty Name="event_startdate" ColumnName="event_startdate" />
+          <ScalarProperty Name="event_description" ColumnName="event_description" />
+          <ScalarProperty Name="event_title" ColumnName="event_title" />
+          <ScalarProperty Name="event_id" ColumnName="event_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="cubitModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="teacher_institution_id" ColumnName="teacher_institution_id" />
+          <ScalarProperty Name="teacher_code" ColumnName="teacher_code" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="timetables">
+      <EntityTypeMapping TypeName="cubitModel.timetable">
+        <MappingFragment StoreEntitySet="timetable">
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="institution_id" ColumnName="institution_id" />
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="timetable_id" ColumnName="timetable_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="periodtimetables">
+      <EntityTypeMapping TypeName="cubitModel.periodtimetable">
+        <MappingFragment StoreEntitySet="periodtimetable">
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+          <ScalarProperty Name="period_no" ColumnName="period_no" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="timetable_id" ColumnName="timetable_id" />
+          <ScalarProperty Name="pttable_id" ColumnName="pttable_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="examreportmappings">
+      <EntityTypeMapping TypeName="cubitModel.examreportmapping">
+        <MappingFragment StoreEntitySet="examreportmapping">
+          <ScalarProperty Name="exam_term" ColumnName="exam_term" />
+          <ScalarProperty Name="erm_institution_id" ColumnName="erm_institution_id" />
+          <ScalarProperty Name="erm_class_id" ColumnName="erm_class_id" />
+          <ScalarProperty Name="erm_section_id" ColumnName="erm_section_id" />
+          <ScalarProperty Name="erm_id" ColumnName="erm_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="examschedules">
+      <EntityTypeMapping TypeName="cubitModel.examschedule">
+        <MappingFragment StoreEntitySet="examschedule">
+          <ScalarProperty Name="exam_term" ColumnName="exam_term" />
+          <ScalarProperty Name="exam_date" ColumnName="exam_date" />
+          <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="erm_id" ColumnName="erm_id" />
+          <ScalarProperty Name="examsec_id" ColumnName="examsec_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="homeworkuploads">
+      <EntityTypeMapping TypeName="cubitModel.homeworkupload">
+        <MappingFragment StoreEntitySet="homeworkupload">
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="hw_url" ColumnName="hw_url" />
+          <ScalarProperty Name="hw_student_id" ColumnName="hw_student_id" />
+          <ScalarProperty Name="homework_id" ColumnName="homework_id" />
+          <ScalarProperty Name="homeworkupload_id" ColumnName="homeworkupload_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quizquestions">
+      <EntityTypeMapping TypeName="cubitModel.quizquestion">
+        <MappingFragment StoreEntitySet="quizquestions">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="choices" ColumnName="choices" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="erm_id" ColumnName="erm_id" />
+          <ScalarProperty Name="ques_id" ColumnName="ques_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quizresults">
+      <EntityTypeMapping TypeName="cubitModel.quizresult">
+        <MappingFragment StoreEntitySet="quizresult">
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="select_ans" ColumnName="select_ans" />
+          <ScalarProperty Name="ques_id" ColumnName="ques_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="erm_id" ColumnName="erm_id" />
+          <ScalarProperty Name="qui_res_id" ColumnName="qui_res_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="homework">
+      <EntityTypeMapping TypeName="cubitModel.homework">
+        <MappingFragment StoreEntitySet="homework">
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="hw_date" ColumnName="hw_date" />
+          <ScalarProperty Name="hw_description" ColumnName="hw_description" />
+          <ScalarProperty Name="hw_subject_id" ColumnName="hw_subject_id" />
+          <ScalarProperty Name="hw_teacher_id" ColumnName="hw_teacher_id" />
+          <ScalarProperty Name="hw_class_id" ColumnName="hw_class_id" />
+          <ScalarProperty Name="hw_section_id" ColumnName="hw_section_id" />
+          <ScalarProperty Name="hw_institution_id" ColumnName="hw_institution_id" />
+          <ScalarProperty Name="homework_id" ColumnName="homework_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reportcards">
+      <EntityTypeMapping TypeName="cubitModel.reportcard">
+        <MappingFragment StoreEntitySet="reportcard">
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="erm_term" ColumnName="erm_term" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="marks" ColumnName="marks" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="erm_id" ColumnName="erm_id" />
+          <ScalarProperty Name="recard_id" ColumnName="recard_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="cubitModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="student_eca" ColumnName="student_eca" />
+          <ScalarProperty Name="student_cca" ColumnName="student_cca" />
+          <ScalarProperty Name="student_institution_id" ColumnName="student_institution_id" />
+          <ScalarProperty Name="student_class" ColumnName="student_class" />
+          <ScalarProperty Name="student_section" ColumnName="student_section" />
+          <ScalarProperty Name="student_roll_no" ColumnName="student_roll_no" />
+          <ScalarProperty Name="student_regid" ColumnName="student_regid" />
+          <ScalarProperty Name="student_mother_name" ColumnName="student_mother_name" />
+          <ScalarProperty Name="student_father_name" ColumnName="student_father_name" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="institutions">
+      <EntityTypeMapping TypeName="cubitModel.institution">
+        <MappingFragment StoreEntitySet="institution">
+          <ScalarProperty Name="institution_class_id" ColumnName="institution_class_id" />
+          <ScalarProperty Name="institution_nostudents" ColumnName="institution_nostudents" />
+          <ScalarProperty Name="institution_poc" ColumnName="institution_poc" />
+          <ScalarProperty Name="institution_website" ColumnName="institution_website" />
+          <ScalarProperty Name="institution_address" ColumnName="institution_address" />
+          <ScalarProperty Name="institution_name" ColumnName="institution_name" />
+          <ScalarProperty Name="institution_city" ColumnName="institution_city" />
+          <ScalarProperty Name="institution_state" ColumnName="institution_state" />
+          <ScalarProperty Name="institution_country" ColumnName="institution_country" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="institution_id" ColumnName="institution_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
